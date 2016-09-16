@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Image Wall Test</title>
+
+		<link rel="stylesheet" href="../dist/image-wall.css">
+
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script src="../dist/image-wall.js"></script>
+
+		<style>
+			
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #000;
+			}
+
+			.image-wall .row {
+				height: 200px;
+			}
+
+			.image-wall, .image-wall .row .column {
+				padding: 8px;
+			}
+
+			.image-wall .row a {
+				border-radius: 2px;
+				background-color: #111;
+			}
+
+			.image-wall .row a:hover {
+				opacity: 0.5;
+			}
+
+			@media (max-width: 1024px) {
+				.image-wall, .image-wall .row .column {
+					padding: 4px;
+				}
+
+				.image-wall .row {
+					height: 100px;
+				}
+			}
+
+		</style>
+
+		<script>
+
+			$(function() {
+				$('.image-wall').imageWall();
+
+				$('.image-wall').delegate('a', 'click', function() {
+					console.log( 'data-custom-index: ' + $(this).find('img').data('custom-index') );
+					console.log( 'data-or-url: ' + $(this).find('img').data('or-url') );
+				});
+			});
+
+		</script>
+
+	</head>
+	<body>
+
+		<div class="image-wall">
+			<script>
+				for(var n=0; n<32; n++) {
+					var w =  (2 + Math.round(Math.random() * 6)) * 100; // Random width between 200 - 800
+					var h =  (2 + Math.round(Math.random() * 6)) * 100; // Random height between 200 - 800
+					var url = 'https://unsplash.it/' + w + '/' + h + '/?' + n;
+					document.write('<img src="' + url + '" data-custom-index="' + n + '" data-or-url="CUSTOM URL!">');
+				}
+			</script>
+		</div>
+
+	</body>
+</html>

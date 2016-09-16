@@ -1,0 +1,8 @@
+{
+  "name": "image-wall",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.6"
+  }
+}
