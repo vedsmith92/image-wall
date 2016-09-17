@@ -1,4 +1,13 @@
-(new function() {
+/**
+ * image-wall
+ * https://github.com/vedsmith92/image-wall
+ *
+ * Copyright 2016, Ved Smithiprechawongse
+ * Licensed under the MIT license.
+ * Version: 1.0.1
+ */
+
+$(function() {
 
 	var element;
 	
@@ -52,7 +61,7 @@
 
 		alignmentGrid();
 
-		// fix if last row not full
+		// fix if last row not fill fully
 
 		if(grid.row.length > 0) {
 			while(grid.row[grid.row.length - 1].width < grid.width * 0.8) {
@@ -91,6 +100,8 @@
 			}
 
 		}
+
+		// bind image load
 
 		element.find('img').unbind('load');
 		element.find('img').each(function() {
@@ -174,4 +185,5 @@
 		return i;
 		
 	};
+
 });

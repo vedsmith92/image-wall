@@ -1,17 +1,23 @@
-# Jquery Image Wall
+# image-wall
 
 Turn this:
 
 ![](https://raw.githubusercontent.com/vedsmith92/image-wall/master/before.jpg)
 
-To this:
+Into this:
 
 ![](https://raw.githubusercontent.com/vedsmith92/image-wall/master/after.jpg)
 
-## Supports
+## Example
 
+[See demo here](https://rawgit.com/vedsmith92/image-wall/master/test/index.html)
+
+## About Image-Wall
+
+0. Require jQuery >= 1.12.4
+0. Sequentially image order.
 0. Auto re-render when window resize (full responsive) or image loaded.
-0. Support custom data attributes.
+0. Support any/custom data attributes.
 0. Support CSS (with media queries).
 
 ## Getting started
@@ -46,25 +52,49 @@ HTML:
 
 ```
 <div class="image-wall">
-	<img src="IMAGE-URL" data-custom-attribute="CUSTOM ATTRIBUTE HERE!">
+	<img src="IMAGE-URL-01" data-custom-attribute="CUSTOM ATTRIBUTE 01 HERE!">
+	<img src="IMAGE-URL-02" data-custom-attribute="CUSTOM ATTRIBUTE 02 HERE!">
+	<img src="IMAGE-URL-03" data-custom-attribute="CUSTOM ATTRIBUTE 03 HERE!">
 	...
 </div>
 ```
 
-Rendered  HTML:
+Example CSS Styles:
 
 ```
-<div class="image-wall">
-	<div class="row">
-		<div class="column" style="flex: 2;">
-			<a style="background-image: url(IMAGE-URL);" data-index="0">
-				<img src="IMAGE-URL" data-custom-attribute="CUSTOM ATTRIBUTE HERE!">
-			</a>
-		</div>
-		...
-	</div>
-	...
-</div>
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+}
+
+.image-wall .row {
+	height: 200px;
+}
+
+.image-wall, .image-wall .row .column {
+	padding: 8px;
+}
+
+.image-wall .row a {
+	border-radius: 2px;
+	background-color: #111;
+}
+
+.image-wall .row a:hover {
+	opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+	.image-wall, .image-wall .row .column {
+		padding: 4px;
+	}
+
+	.image-wall .row {
+		height: 100px;
+	}
+}
+
 ```
 
 ### Methods
@@ -74,10 +104,6 @@ Call this to re-render the wall:
 ```
 $('.image-wall').imageWall();
 ```
-
-## Example
-
-[See demo here](https://rawgit.com/vedsmith92/image-wall/master/test/index.html)
 
 ## Browser support
 
